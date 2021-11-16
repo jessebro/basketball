@@ -10,18 +10,22 @@ def set_positions():
 	keys = list(players.goodies.keys())
 	while True:
 		clear()
-		print(f"""Set where you want each player to be. There are five positions.
+		for player in keys:
+			print(colour_it(players.goodies[player]['firstname'] + " " + players.goodies[player]['lastname'], Color.ALLY))
+			print(f"""Set where you want {colour_it(players.goodies[player]['firstname'] + " " + players.goodies[player]['lastname'], Color.ALLY)} to be. There are five positions.
+
 1. {positions[0].title()} (Offensive)
 2. {positions[1].title()} (Offensive)
 3. {positions[2].title()} (Neutral)
 4. {positions[3].title()} (Defensive)
-5. {positions[4].title()} (Defensive)""")
-		position = input_stuff("""
+5. {positions[4].title()} (Defensive)
+
+This player's stats are:
+Offense: {players.goodies[player]['offense']}
+Defence: {players.goodies[player]['defence']}
+Speed: {players.goodies[player]['speed']}
+""")
+			position = input_stuff("""
 Select the corresponding number of a position.
 >>> """, ["1", "2", "3", "4", "5"])
-		players.print_players()
-		choice = input(f"""Which player do you want to be on for {positions[int(position) - 1]}?
->>> """)
-		players.goodies[keys[int(choice) - 1]]['position'] = positions[int(position) - 1]
-		positions[int(position) - 1] += ": " + players.goodies[keys[int(choice) - 1]]['firstname'] + " " + players.goodies[keys[int(choice) - 1]]['lastname'] + ""
-
+			players.goodies[player]['position'] = positions[int(position) - 1]

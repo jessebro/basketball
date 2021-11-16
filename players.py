@@ -5,6 +5,18 @@ from utils import clear
 from utils import colour_it
 from utils import Color
 
+
+class Player:
+
+	def __init__(self, name, offense, defence, speed, position, exhaustion):
+		self.name = name
+		self.offense = offense
+		self.defence = defence
+		self.speed = speed
+		self.position = position
+		self.exhaustion = exhaustion
+
+
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
 offenses1 = [45, 55, 60, 70, 80]
@@ -41,6 +53,7 @@ def generate_players():
 	"defence": choose(defences2),
 	"speed": choose(speeds2),
 }
+
 
 def print_players():
 	counter = 1
