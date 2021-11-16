@@ -8,7 +8,7 @@ from utils import Color
 
 class Player:
 
-	def __init__(self, name, offense, defence, speed, position, exhaustion):
+	def __init__(self, name, offense, defence, speed, position="", exhaustion=0):
 		self.name = name
 		self.offense = offense
 		self.defence = defence
@@ -39,20 +39,8 @@ def choose(list):
 
 def generate_players():
 	for player in players:
-		goodies[player] = {
-	"firstname": choose(firstnames),
-	"lastname": choose(lastnames),
-	"offense": choose(offenses1),
-	"defence": choose(defences1),
-	"speed": choose(speeds1),
-}
-		baddies[player] = {
-	"firstname": choose(firstnames),
-	"lastname": choose(lastnames),
-	"offense": choose(offenses2),
-	"defence": choose(defences2),
-	"speed": choose(speeds2),
-}
+		goodies[player] = Player(choose(firstnames) + " " + choose(lastnames), choose(offenses1), choose(defences1), choose(speeds1))
+		baddies[player] = Player(choose(firstnames) + " " + choose(lastnames), choose(offenses2), choose(defences2), choose(speeds2))
 
 
 def print_players():
@@ -60,7 +48,7 @@ def print_players():
 	clear()
 	print("Your players are:")
 	for player in goodies.keys():
-		print(f"""{counter}. {colour_it(goodies[player]['firstname'] + " " + goodies[player]['lastname'], Color.ALLY)}""")
+		print(f"""{counter}. {colour_it(goodies[player].name, Color.ALLY)}""")
 		counter += 1
 
 
@@ -75,8 +63,8 @@ Enter a player's number to view their statics, or enter any key to continue.
 			break
 		else:
 			clear()
-			print_stuff(f"""{colour_it(goodies['player' + choice]['firstname'] + " " + goodies['player' + choice]['lastname'], Color.ALLY)}
-Offense: {goodies['player' + choice]['offense']}
-Defence: {goodies['player' + choice]['defence']}
-Speed: {goodies['player' + choice]['speed']}
+			print_stuff(f"""{colour_it(goodies['player' + choice].name, Color.ALLY)}
+Offense: {goodies['player' + choice].offense}
+Defence: {goodies['player' + choice].defence}
+Speed: {goodies['player' + choice].speed}
 """)

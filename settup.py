@@ -11,8 +11,8 @@ def set_positions():
 	while True:
 		clear()
 		for player in keys:
-			print(colour_it(players.goodies[player]['firstname'] + " " + players.goodies[player]['lastname'], Color.ALLY))
-			print(f"""Set where you want {colour_it(players.goodies[player]['firstname'] + " " + players.goodies[player]['lastname'], Color.ALLY)} to be. There are five positions.
+			print(colour_it(players.goodies[player].name, Color.ALLY))
+			print(f"""Set where you want {colour_it(players.goodies[player].name, Color.ALLY)} to be. There are five positions.
 
 1. {positions[0].title()} (Offensive)
 2. {positions[1].title()} (Offensive)
@@ -21,11 +21,11 @@ def set_positions():
 5. {positions[4].title()} (Defensive)
 
 This player's stats are:
-Offense: {players.goodies[player]['offense']}
-Defence: {players.goodies[player]['defence']}
-Speed: {players.goodies[player]['speed']}
+Offense: {players.goodies[player].offense}
+Defence: {players.goodies[player].defence}
+Speed: {players.goodies[player].speed}
 """)
 			position = input_stuff("""
 Select the corresponding number of a position.
 >>> """, ["1", "2", "3", "4", "5"])
-			players.goodies[player]['position'] = positions[int(position) - 1]
+			players.goodies[player].position = positions[int(position) - 1]
