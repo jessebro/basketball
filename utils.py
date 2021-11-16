@@ -2,6 +2,7 @@ import sys
 from enum import Enum
 import os
 
+
 def clear():
 	if sys.platform.startswith("win"):
 		os.system('cls')
@@ -12,6 +13,13 @@ def clear():
 def print_stuff(script):
 	print(script)
 	input(">>>")
+
+def input_stuff(prompt, options):
+	while True:
+		choice = input(prompt)
+		if choice in options:
+			break
+	return choice
 
 
 class Color(Enum):

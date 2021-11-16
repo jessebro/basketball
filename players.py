@@ -33,7 +33,6 @@ def generate_players():
 	"offense": choose(offenses1),
 	"defence": choose(defences1),
 	"speed": choose(speeds1),
-	"position": ""
 }
 		baddies[player] = {
 	"firstname": choose(firstnames),
@@ -41,7 +40,6 @@ def generate_players():
 	"offense": choose(offenses2),
 	"defence": choose(defences2),
 	"speed": choose(speeds2),
-	"position": ""
 }
 
 def print_players():
