@@ -32,3 +32,12 @@ Select the corresponding number of a position.
 			positions_taken.append(players.goodies[player].position)
 			positions.remove(players.goodies[player].position)
 			options.remove(options[len(options) - 1])
+		clear()
+		print("Your team's positions are:")
+		for player in keys:
+			print(f"{colour_it(players.goodies[player].name, Color.ALLY)}: {players.goodies[player].position.title()}")
+		confirm = input_stuff("""Do you wish to continue with this team? (y/n)
+>>> """, ["y", "n", "Y", "N"])
+		if confirm.lower() == "y":
+			break
+
