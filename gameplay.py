@@ -30,7 +30,6 @@ game_state = {
 
 
 def init():
-	global game_state
 	game_state = {
 		"ball_position": 0,  # Increases when taken towards enemy hoop. Decreases when taken towards player's hoop.
 		"player_score": 0,
@@ -53,3 +52,43 @@ def jump_ball():
 	else:
 		print_stuff(f"{colour_it(enemy['center'].name, Color.ENEMY)} takes the ball!")
 		game_state['possession'] = False
+
+
+def game_flow():
+	while True:
+		if game_state['possession']:
+			player_turn()
+		else:
+			enemy_turn()
+
+
+def player_turn():
+	pass
+
+
+def pass_ball():
+	pass
+
+
+def skirt():
+	pass
+
+
+def shoot():
+	pass
+
+
+def enemy_turn():
+	pass
+
+
+def enemy_pass():
+	pass
+
+
+def enemy_skirt():
+	pass
+
+
+def enemy_shoot():
+	pass
