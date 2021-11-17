@@ -8,7 +8,7 @@ from utils import Color
 
 class Player:
 
-	def __init__(self, name, offense, defence, speed, position="", exhaustion=0):
+	def __init__(self, name="", offense=0, defence=0, speed=0, position="", exhaustion=0):
 		self.name = name
 		self.offense = offense
 		self.defence = defence
@@ -21,7 +21,7 @@ firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "S
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
 offenses1 = [45, 55, 60, 70, 80]
 defences1 = [45, 55, 60, 70, 80]
-speeds1 = [30, 18, 25, 22, 26]
+speeds1 = [11, 13, 16, 21, 25]
 offenses2 = copy.deepcopy(offenses1)
 defences2 = copy.deepcopy(defences1)
 speeds2 = copy.deepcopy(speeds1)

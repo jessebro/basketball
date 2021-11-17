@@ -1,3 +1,5 @@
+import random
+
 from utils import print_stuff
 from utils import clear
 from utils import input_stuff
@@ -42,3 +44,11 @@ Select the corresponding number of a position.
 		if confirm.lower() == "y":
 			break
 
+
+def enemy_setup():
+	positions = ["point guard", "small forward", "center", "power forward", "shooting guard"]
+	keys = list(players.baddies.keys())
+	for player in keys:
+		role = random.choice(positions)
+		players.baddies[player].position = role
+		positions.remove(role)
