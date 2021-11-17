@@ -5,6 +5,7 @@ from utils import colour_it
 from utils import Color
 import players
 
+
 def set_positions():
 	keys = list(players.goodies.keys())
 	while True:
