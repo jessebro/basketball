@@ -29,7 +29,6 @@ Speed: {players.goodies[player].speed}""")
 Select the corresponding number of a position.
 >>> """, options)
 			players.goodies[player].position = positions[int(position) - 1]
-			if players.goodies[player].position != "":
-				positions_taken.append(players.goodies[player].position)
-				positions.remove(players.goodies[player].position)
-				options.remove(options[len(options) - 1])
+			positions_taken.append(players.goodies[player].position)
+			positions.remove(players.goodies[player].position)
+			options.remove(options[len(options) - 1])
