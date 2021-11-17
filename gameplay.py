@@ -6,20 +6,21 @@ from utils import colour_it
 from utils import Color
 
 team = {
-	"point guard": None,
-	"small forward": None,
-	"center": None,
-	"power forward": None,
-	"shooting guard": None,
+	"point guard": players.Player(),
+	"small forward": players.Player(),
+	"center": players.Player(),
+	"power forward": players.Player(),
+	"shooting guard": players.Player(),
 }
 
 enemy = {
-	"point guard": None,
-	"small forward": None,
-	"center": None,
-	"power forward": None,
-	"shooting guard": None,
+	"point guard": players.Player(),
+	"small forward": players.Player(),
+	"center": players.Player(),
+	"power forward": players.Player(),
+	"shooting guard": players.Player(),
 }
+
 positions = ["point guard", "small forward", "center", "power forward", "shooting guard"]
 
 game_state = {
@@ -28,6 +29,7 @@ game_state = {
 	"enemy_score": 0,
 }
 
+ball_player = None
 
 def init():
 	game_state = {
@@ -49,9 +51,11 @@ def jump_ball():
 	if player_roll >= enemy_roll:
 		print_stuff(f"{colour_it(team['center'].name, Color.ALLY)} takes the ball!")
 		game_state['possession'] = True
+		ball_player = team['center']
 	else:
 		print_stuff(f"{colour_it(enemy['center'].name, Color.ENEMY)} takes the ball!")
 		game_state['possession'] = False
+		ball_player = enemy['center']
 
 
 def game_flow():
@@ -63,19 +67,22 @@ def game_flow():
 
 
 def player_turn():
-	pass
+	game_state['ball_position'] += ball_player.speed
+	actions = [ball_player.pass_ball, ball_player.skirt, ball_player.shoot]
+	print(f"""{colour_it(ball_player.name, Color.ALLY)} takes the ball {ball_player.speed} towards the enemy hoop.
+They are intercepted by {colour_it(random.choice(enemy).name, Color.ENEMY)}""")
+	if game_state['ball_position'] >= 0:
+		action = input_stuff("""Do they...
+1. Pass.
+2. Skirt.
+3. Shoot.
+>>> """, ["1", "2", "3"])
+	else:
+		action = input_stuff("""Do they...
+1. Pass.
+2. Skirt.
+>>> """, ["1", "2"])
 
-
-def pass_ball():
-	pass
-
-
-def skirt():
-	pass
-
-
-def shoot():
-	pass
 
 
 def enemy_turn():

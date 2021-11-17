@@ -15,6 +15,7 @@ def print_stuff(script):
 	print(script)
 	input(">>>")
 
+
 def input_stuff(prompt, options):
 	while True:
 		choice = input(prompt)

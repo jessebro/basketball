@@ -17,6 +17,16 @@ class Player:
 		self.exhaustion = exhaustion
 
 
+	def pass_ball(self, defense):
+		pass
+
+	def skirt(self, defense):
+		pass
+
+	def shoot(self, defense):
+		pass
+
+
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
 offenses1 = [45, 55, 60, 70, 80]
