@@ -7,4 +7,4 @@ players.view_players()
 settup.set_positions()
 settup.enemy_setup()
 gameplay.init()
-
+gameplay.jump_ball()

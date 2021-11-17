@@ -5,18 +5,21 @@ from utils import input_stuff
 from utils import colour_it
 from utils import Color
 
-sguard = players.Player()
-pguard = players.Player()
-center = players.Player()
-sforward = players.Player()
-pforword = players.Player()
-epguard = players.Player()
-esforward = players.Player()
-ecenter = players.Player()
-epforword = players.Player()
-esguard = players.Player()
-team = [pguard, sforward, center, pforword, sguard]
-enemy = [epguard, esforward, ecenter, epforword, esguard]
+team = {
+	"point guard": None,
+	"small forward": None,
+	"center": None,
+	"power forward": None,
+	"shooting guard": None,
+}
+
+enemy = {
+	"point guard": None,
+	"small forward": None,
+	"center": None,
+	"power forward": None,
+	"shooting guard": None,
+}
 positions = ["point guard", "small forward", "center", "power forward", "shooting guard"]
 
 game_state = {
@@ -35,20 +38,18 @@ def init():
 		"possestion": False  # True if the player has it, False if the enemy has it.
 	}
 	for player in list(players.goodies.keys()):
-		idx = positions.index(players.goodies[player].position)
-		team[idx] = players.goodies[player]
+		team[players.goodies[player].position] = players.goodies[player]
 	for player in list(players.baddies.keys()):
-		idx = positions.index(players.baddies[player].position)
-		enemy[idx] = players.baddies[player]
+		enemy[players.baddies[player].position] = players.baddies[player]
 
 
 def jump_ball():
 	print_stuff("""The jump ball is thrown. The center player from each team contests to reach it.""")
-	player_roll = random.randrange(1, center.offense)
-	enemy_roll = random.randrange(1, ecenter.offense)
+	player_roll = random.randrange(1, team['center'].offense)
+	enemy_roll = random.randrange(1, enemy['center'].offense)
 	if player_roll >= enemy_roll:
-		print_stuff(f"{colour_it(center.name, Color.ALLY)} takes the ball!")
+		print_stuff(f"{colour_it(team['center'].name, Color.ALLY)} takes the ball!")
 		game_state['possession'] = True
 	else:
-		print_stuff(f"{colour_it(ecenter.name, Color.ENEMY)} takes the ball!")
+		print_stuff(f"{colour_it(enemy['center']1.name, Color.ENEMY)} takes the ball!")
 		game_state['possession'] = False
