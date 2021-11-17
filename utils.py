@@ -11,6 +11,7 @@ def clear():
 
 
 def print_stuff(script):
+	clear()
 	print(script)
 	input(">>>")
 

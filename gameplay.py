@@ -51,5 +51,5 @@ def jump_ball():
 		print_stuff(f"{colour_it(team['center'].name, Color.ALLY)} takes the ball!")
 		game_state['possession'] = True
 	else:
-		print_stuff(f"{colour_it(enemy['center']1.name, Color.ENEMY)} takes the ball!")
+		print_stuff(f"{colour_it(enemy['center'].name, Color.ENEMY)} takes the ball!")
 		game_state['possession'] = False
