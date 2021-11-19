@@ -1,4 +1,5 @@
 import sys
+import random
 from enum import Enum
 import os
 
@@ -45,3 +46,9 @@ def colour_it(msg, color=Color.RESET):
 	if not isinstance(color, Color):
 		color = Color.RESET
 	return color.value + msg + Color.RESET.value
+
+
+def choose(list):
+	choice = random.choice(list)
+	list.remove(choice)
+	return choice

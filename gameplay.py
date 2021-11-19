@@ -45,6 +45,7 @@ def init():
 
 
 def jump_ball():
+	global ball_player
 	print_stuff("""The jump ball is thrown. The center player from each team contests to reach it.""")
 	player_roll = random.randrange(1, team['center'].offense)
 	enemy_roll = random.randrange(1, enemy['center'].offense)
@@ -69,8 +70,9 @@ def game_flow():
 def player_turn():
 	game_state['ball_position'] += ball_player.speed
 	actions = [ball_player.pass_ball, ball_player.skirt, ball_player.shoot]
+	defender = enemy[random.choice(list(enemy.keys()))]
 	print(f"""{colour_it(ball_player.name, Color.ALLY)} takes the ball {ball_player.speed} towards the enemy hoop.
-They are intercepted by {colour_it(random.choice(enemy).name, Color.ENEMY)}""")
+They are intercepted by {colour_it(defender.name, Color.ENEMY)}""")
 	if game_state['ball_position'] >= 0:
 		action = input_stuff("""Do they...
 1. Pass.
@@ -82,6 +84,7 @@ They are intercepted by {colour_it(random.choice(enemy).name, Color.ENEMY)}""")
 1. Pass.
 2. Skirt.
 >>> """, ["1", "2"])
+	actions[int(action) - 1](defender, team)
 
 
 

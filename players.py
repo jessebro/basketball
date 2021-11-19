@@ -4,7 +4,9 @@ import copy
 from utils import clear
 from utils import colour_it
 from utils import Color
+from utils import choose
 
+famous = False
 
 class Player:
 
@@ -17,18 +19,20 @@ class Player:
 		self.exhaustion = exhaustion
 
 
-	def pass_ball(self, defense):
+	def pass_ball(self, defender, team):
+		keys = list(team.keys())
+		choice = input(f"""Who will {colour_it(self.name, Color.ALLY)} pass to?""")
+
+	def skirt(self, defender):
 		pass
 
-	def skirt(self, defense):
-		pass
-
-	def shoot(self, defense):
+	def shoot(self, defender):
 		pass
 
 
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
+famous_names = ["Jesus Christ", "Jeff Bezos", "Mohammed Ali", "Derrin Brown", "Barrack Obama", "Kanye West", "Mr Beast", "Snoop Dogg", "Neil Armstrong", "Spiderman", "Saddam Hussein", "Joe Biden"]
 offenses1 = [45, 55, 60, 70, 80]
 defences1 = [45, 55, 60, 70, 80]
 speeds1 = [11, 13, 16, 21, 25]
@@ -41,16 +45,17 @@ players = ["player1", "player2", "player3", "player4", "player5"]
 goodies = {}
 baddies = {}
 
-def choose(list):
-	choice = random.choice(list)
-	list.remove(choice)
-	return choice
-
 
 def generate_players():
 	for player in players:
-		goodies[player] = Player(choose(firstnames) + " " + choose(lastnames), choose(offenses1), choose(defences1), choose(speeds1))
-		baddies[player] = Player(choose(firstnames) + " " + choose(lastnames), choose(offenses2), choose(defences2), choose(speeds2))
+		if not famous:
+			goody_name = choose(firstnames) + " " + choose(lastnames)
+			baddy_name = choose(firstnames) + " " + choose(lastnames)
+		else:
+			goody_name = choose(famous_names)
+			baddy_name = choose(famous_names)
+		goodies[player] = Player(goody_name, choose(offenses1), choose(defences1), choose(speeds1))
+		baddies[player] = Player(baddy_name, choose(offenses2), choose(defences2), choose(speeds2))
 
 
 def print_players():
