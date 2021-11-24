@@ -19,22 +19,25 @@ class Player:
 		self.exhaustion = exhaustion
 
 
-	def pass_ball(self, defender, team):
+	def pass_ball(self, defender, team, ball_player):
 		keys = list(team.keys())
 		string = ""
+		counter = 1
 		for player in keys:
-			counter = 1
 			if team[player].name != self.name:
 				string += f"""{counter}. {team[player].name}
 """
 			counter += 1
 		choice = input(f"""Who will {colour_it(self.name, Color.ALLY)} pass to?
-{string}""")
+{string}
+>>> """)
+		return team[keys[int(choice) - 1]]
 
-	def skirt(self, defender):
+
+	def skirt(self, defender, team, ball_player):
 		pass
 
-	def shoot(self, defender):
+	def shoot(self, defender, team, ball_player):
 		pass
 
 

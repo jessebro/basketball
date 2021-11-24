@@ -68,10 +68,11 @@ def game_flow():
 
 
 def player_turn():
+	global ball_player
 	game_state['ball_position'] += ball_player.speed
 	actions = [ball_player.pass_ball, ball_player.skirt, ball_player.shoot]
 	defender = enemy[random.choice(list(enemy.keys()))]
-	print(f"""{colour_it(ball_player.name, Color.ALLY)} takes the ball {ball_player.speed} towards the enemy hoop.
+	print(f"""{colour_it(ball_player.name, Color.ALLY)} takes the ball {ball_player.speed} feet towards the enemy hoop.
 They are intercepted by {colour_it(defender.name, Color.ENEMY)}""")
 	if game_state['ball_position'] >= 0:
 		action = input_stuff("""Do they...
@@ -84,8 +85,9 @@ They are intercepted by {colour_it(defender.name, Color.ENEMY)}""")
 1. Pass.
 2. Skirt.
 >>> """, ["1", "2"])
-	actions[int(action) - 1](defender, team)
-
+	effect = actions[int(action) - 1](defender, team, ball_player)
+	if isinstance(effect, str):
+		ball_player = team[effect]
 
 
 def enemy_turn():
