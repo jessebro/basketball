@@ -21,7 +21,15 @@ class Player:
 
 	def pass_ball(self, defender, team):
 		keys = list(team.keys())
-		choice = input(f"""Who will {colour_it(self.name, Color.ALLY)} pass to?""")
+		string = ""
+		for player in keys:
+			counter = 1
+			if team[player].name != self.name:
+				string += f"""{counter}. {team[player].name}
+"""
+			counter += 1
+		choice = input(f"""Who will {colour_it(self.name, Color.ALLY)} pass to?
+{string}""")
 
 	def skirt(self, defender):
 		pass
@@ -32,7 +40,7 @@ class Player:
 
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
-famous_names = ["Jesus Christ", "Jeff Bezos", "Mohammed Ali", "Derrin Brown", "Barrack Obama", "Kanye West", "Mr Beast", "Snoop Dogg", "Neil Armstrong", "Spiderman", "Saddam Hussein", "Joe Biden"]
+famous_names = ["Jesus Christ", "Jeff Bezos", "Mohammed Ali", "Derrin Brown", "Obama bin Laden", "Kanye West", "Mr Beast", "Snoop Dogg", "Neil Armstrong", "Spiderman", "Saddam Hussein", "Boe Jiden", "Bill Gates", "Bruce Lee", "Mahatma Gandhi", "Sugar Daddy Craig", "Renegade Raider"]
 offenses1 = [45, 55, 60, 70, 80]
 defences1 = [45, 55, 60, 70, 80]
 speeds1 = [11, 13, 16, 21, 25]
