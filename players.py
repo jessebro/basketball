@@ -20,18 +20,7 @@ class Player:
 
 
 	def pass_ball(self, defender, team, ball_player):
-		keys = list(team.keys())
-		string = ""
-		counter = 1
-		for player in keys:
-			if team[player].name != self.name:
-				string += f"""{counter}. {team[player].name}
-"""
-			counter += 1
-		choice = input(f"""Who will {colour_it(self.name, Color.ALLY)} pass to?
-{string}
->>> """)
-		return team[keys[int(choice) - 1]]
+		pass
 
 
 	def skirt(self, defender, team, ball_player):
@@ -43,7 +32,7 @@ class Player:
 
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
 lastnames = ["Smith", "Cage", "James", "Hill", "Brown", "Mitchel", "Cole", "Johnson", "Wayne", "Miller", "Gabriel", "Davies", "McDuff"]
-famous_names = ["Jesus Christ", "Jeff Bezos", "Mohammed Ali", "Derrin Brown", "Obama bin Laden", "Kanye West", "Mr Beast", "Snoop Dogg", "Neil Armstrong", "Spiderman", "Saddam Hussein", "Boe Jiden", "Bill Gates", "Bruce Lee", "Mahatma Gandhi", "Sugar Daddy Craig", "Renegade Raider"]
+famous_names = ["Jesus Christ", "Jeff Bezos", "Mohammed Ali", "Derrin Brown", "Obama bin Laden", "Kanye West", "Mr Beast", "Snoop Dogg", "Neil Armstrong", "Spiderman", "Saddam Hussein", "Boe Jiden", "Bill Gates", "Bruce Lee", "Mahatma Gandhi", "Sugar Daddy Craig", "Renegade Raider", "Steve Jobs", "Mike Kachowski"]
 offenses1 = [45, 55, 60, 70, 80]
 defences1 = [45, 55, 60, 70, 80]
 speeds1 = [11, 13, 16, 21, 25]
@@ -51,10 +40,15 @@ offenses2 = copy.deepcopy(offenses1)
 defences2 = copy.deepcopy(defences1)
 speeds2 = copy.deepcopy(speeds1)
 
+player_no = 3
 
 players = ["player1", "player2", "player3", "player4", "player5"]
 goodies = {}
 baddies = {}
+
+removed_players = list(players[player_no:])
+for player in removed_players:
+	players.remove(player)
 
 
 def generate_players():

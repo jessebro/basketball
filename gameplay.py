@@ -78,7 +78,7 @@ They are intercepted by {colour_it(defender.name, Color.ENEMY)}""")
 		action = input_stuff("""Do they...
 1. Pass.
 2. Skirt.
-3. Shoot.
+3. Shoot.`
 >>> """, ["1", "2", "3"])
 	else:
 		action = input_stuff("""Do they...
