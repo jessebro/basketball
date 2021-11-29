@@ -26,6 +26,7 @@ class Player:
 	def skirt(self, defender, team, ball_player):
 		pass
 
+
 	def shoot(self, defender, team, ball_player):
 		pass
 
@@ -40,18 +41,17 @@ offenses2 = copy.deepcopy(offenses1)
 defences2 = copy.deepcopy(defences1)
 speeds2 = copy.deepcopy(speeds1)
 
-player_no = 3
+player_no = 0
 
 players = ["player1", "player2", "player3", "player4", "player5"]
 goodies = {}
 baddies = {}
 
-removed_players = list(players[player_no:])
-for player in removed_players:
-	players.remove(player)
-
 
 def generate_players():
+	removed_players = list(players[player_no:])
+	for player in removed_players:
+		players.remove(player)
 	for player in players:
 		if not famous:
 			goody_name = choose(firstnames) + " " + choose(lastnames)
