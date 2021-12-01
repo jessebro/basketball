@@ -85,9 +85,11 @@ They are intercepted by {colour_it(defender.name, Color.ENEMY)}""")
 1. Pass.
 2. Skirt.
 >>> """, ["1", "2"])
-	effect = actions[int(action) - 1](defender, team, ball_player)
+	effect = actions[int(action) - 1](defender, team, ball_player, game_state["ball_position"])
 	if isinstance(effect, str):
 		ball_player = team[effect]
+	if action == "3":
+		game_state['player_score'] += effect
 
 
 def enemy_turn():

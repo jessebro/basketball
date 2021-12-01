@@ -19,16 +19,33 @@ class Player:
 		self.exhaustion = exhaustion
 
 
-	def pass_ball(self, defender, team, ball_player):
+	def pass_ball(self, defender, team, ball_player, ball_distance):
 		pass
 
 
-	def skirt(self, defender, team, ball_player):
+	def skirt(self, defender, team, ball_player, ball_distance):
 		pass
 
-
-	def shoot(self, defender, team, ball_player):
-		pass
+	def shoot(self, defender, team, ball_player, ball_distance):
+		shot = random.randrange(1, 50 + (45 - ball_distance))
+		score = 0
+		if ball_distance >= 40:
+			print_stuff(f"""{colour_it(self.name, Color.ALLY)} slams the ball through the hoop in a dunk!""")
+			return 2
+		elif ball_distance <= 23:
+			print_stuff(f"""{colour_it(self.name, Color.ALLY)} takes a shot for a 3 pointer!""")
+			score = 3
+		elif ball_distance <= 18:
+			print_stuff(f"""{colour_it(self.name, Color.ALLY)} takes a shot for a 2 pointer!""")
+			score = 2
+		else:
+			print_stuff(f"""{colour_it(self.name, Color.ALLY)} takes a shot!""")
+		if shot <= self.offense:
+			print_stuff(f"""Swish! Through the hoop!""")
+			return score
+		else:
+			print_stuff("A miss! Unlucky.")
+			return 0
 
 
 firstnames = ["John", "Carl", "David", "Andrew", "Toby", "Nathan", "Rodrigo", "Shaun", "Michael", "Felix", "Matt", "Ethan"]
