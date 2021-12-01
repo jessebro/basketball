@@ -35,7 +35,7 @@ class Player:
 		elif ball_distance <= 23:
 			print_stuff(f"""{colour_it(self.name, Color.ALLY)} takes a shot for a 3 pointer!""")
 			score = 3
-		elif ball_distance <= 18:
+		elif ball_distance <= 28:
 			print_stuff(f"""{colour_it(self.name, Color.ALLY)} takes a shot for a 2 pointer!""")
 			score = 2
 		else:
